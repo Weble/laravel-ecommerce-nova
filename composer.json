@@ -1,47 +1,38 @@
 {
-    "name": ":vendor/:package_name",
-    "description": ":package_description",
+    "name": "weble/laravel-ecommerce-nova",
+    "description": "Laravel Ecommerce Nova Tools, Resources and Fields",
     "keywords": [
         "laravel",
         "nova"
     ],
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../laravel-nova"
-        }
-    ],
-    "homepage": "https://github.com/:vendor/:package_name",
+    "homepage": "https://github.com/weble/laravel-ecommerce-nova",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
+            "name": "Weble",
+            "email": "daniele@weble.it",
             "role": "Developer"
         }
     ],
     "require": {
         "php": ">=7.1.0",
-        "laravel/nova": "*"
-    },
-    "require-dev": {
-        "orchestra/testbench": "^3.6",
-        "phpunit/phpunit": "7.1"
+        "laravel/nova": "^3.0",
+        "weble/laravel-ecommerce": "dev-master"
     },
     "autoload": {
         "psr-4": {
-            ":namespace_vendor\\:namespace_tool_name\\": "src/"
+            "Weble\\LaravelEcommerceNova\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            ":namespace_vendor\\:namespace_tool_name\\Tests\\": "tests"
+            "Weble\\LaravelEcommerceNova\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                ":namespace_vendor\\:namespace_tool_name\\ToolServiceProvider"
+                "Weble\\LaravelEcommerceNova\\ToolServiceProvider"
             ]
         }
     },
@@ -49,5 +40,19 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        },
+        {
+            "type": "path",
+            "url": "../laravel-ecommerce"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/sebdesign/state-machine"
+        }
+    ]
 }

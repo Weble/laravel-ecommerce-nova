@@ -1,9 +1,9 @@
 Nova.booting((Vue, router) => {
     router.addRoutes([
-        {
-            name: ':package_name',
-            path: '/:package_name',
+        /*{
+            name: 'laravel-ecommerce-nova',
+            path: '/laravel-ecommerce-nova',
             component: require('./components/Tool'),
-        },
+        },*/
     ])
 })

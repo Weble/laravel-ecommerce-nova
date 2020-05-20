@@ -1,9 +1,9 @@
 <?php
 
-namespace :namespace_vendor\:namespace_tool_name\Tests;
+namespace Weble\LaravelEcommerceNova\Tests;
 
-use :namespace_vendor\:namespace_tool_name\Http\Controllers\ToolController;
-use :namespace_vendor\:namespace_tool_name\:namespace_tool_name;
+use Weble\LaravelEcommerceNova\Http\Controllers\ToolController;
+use Weble\LaravelEcommerceNova\LaravelEcommerceNova;
 use Symfony\Component\HttpFoundation\Response;
 
 class ToolControllerTest extends TestCase
@@ -12,7 +12,7 @@ class ToolControllerTest extends TestCase
     public function it_can_can_return_a_response()
     {
         $this
-            ->get('nova-vendor/:vendor/:package_name/endpoint')
+            ->get('nova-vendor/weble/laravel-ecommerce-nova/endpoint')
             ->assertSuccessful();
     }
 }
