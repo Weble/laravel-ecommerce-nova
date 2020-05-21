@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('endpoint', \Weble\LaravelEcommerceNova\Http\Controllers\ToolController::class . '@index');
+Route::post('change-order-status/{order}/{transition}', \Weble\LaravelEcommerceNova\Http\Controllers\ManageOrderController::class);

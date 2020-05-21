@@ -29,7 +29,7 @@ public function tools()
 {
     return [
         // ...
-        new \Weble\LaravelEcommerceNova\Tool(),
+        new \Weble\LaravelEcommerceNova\ManageOrderTool(),
     ];
 }
 ```

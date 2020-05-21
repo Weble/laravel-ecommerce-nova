@@ -24,7 +24,8 @@ class ToolServiceProvider extends ServiceProvider
         });
 
         Nova::serving(function (ServingNova $event) {
-            Nova::script('nova-money-field', __DIR__.'/../dist/js/field.js');
+            Nova::script('nova-laravel-ecommerce-money-field', __DIR__.'/../dist/js/field.js');
+            Nova::script('nova-laravel-ecommerce-manage-order-tool', __DIR__.'/../dist/js/tool.js');
         });
     }
 
