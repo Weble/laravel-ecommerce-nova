@@ -23,9 +23,8 @@ class ToolServiceProvider extends ServiceProvider
             $this->routes();
         });
 
-        Nova::serving(function (\Laravel\Nova\Events\ServingNovaervingNova $event) {
-            Nova::script('nova-money-field', __DIR__ . '/../../dist/js/field.js');
-            Nova::style('nova-money-field', __DIR__ . '/../../dist/css/field.css');
+        Nova::serving(function (ServingNova $event) {
+            Nova::script('nova-money-field', __DIR__.'/../dist/js/field.js');
         });
     }
 

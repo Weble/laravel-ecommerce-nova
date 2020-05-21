@@ -3,23 +3,40 @@
 
 namespace Weble\LaravelEcommerceNova\Field;
 
-use Money\Currency;
 use Laravel\Nova\Fields\Number;
-use Money\Currencies\ISOCurrencies;
-use Money\Currencies\BitcoinCurrencies;
-use Money\Currencies\AggregateCurrencies;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Money extends Number
 {
-    public $component = 'nova-money-field';
+    public $component = 'nova-laravel-ecommerce-money-field';
 
-    public function __construct($name, $currency = 'USD', $attribute = null, $resolveCallback = null)
+    protected string $currency;
+
+    public function __construct($name, $attribute = null, $resolveCallback = null)
     {
         parent::__construct($name, $attribute, $resolveCallback);
 
+        $this->defaultCurrency();
+    }
+
+    public function userCurrency(): self
+    {
+        $this->withCurrency(config('ecommerce.currency.user', 'USD'));
+
+        return $this;
+    }
+
+    public function defaultCurrency(): self
+    {
+        $this->withCurrency(config('ecommerce.currency.default', 'USD'));
+
+        return $this;
+    }
+
+    public function withCurrency(string $currency): self
+    {
         $units = currencyManager()->availableCurrencies()->subunitFor(
-            currencyManager()->currency($currency),
+            currencyManager()->currency($currency)
         );
 
         $this->withMeta([
@@ -30,12 +47,18 @@ class Money extends Number
         $this->step(1 / $units);
 
         $this
-            ->resolveUsing(function ($value) use ($currency) {
+            ->displayUsing(function(\Cknow\Money\Money $value) {
                 return (string) $value;
             })
-            ->fillUsing(function (NovaRequest $request, $model, $attribute, $requestAttribute) use ($currency) {
+            ->resolveUsing(function (\Cknow\Money\Money $value) {
+                return $value->getAmount() /  pow(10, $this->meta()['subUnits']);
+            })
+            ->fillUsing(function (NovaRequest $request, $model, $attribute, $requestAttribute) {
                 $value = $request[$requestAttribute];
-                $model->{$attribute} = $value;
+                $value *= pow(10, $this->meta()['subUnits']);
+                $model->{$attribute} = new \Cknow\Money\Money($value, currencyManager()->currency($this->meta()['currency']));
             });
+
+        return $this;
     }
 }
