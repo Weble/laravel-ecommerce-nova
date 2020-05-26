@@ -44,7 +44,7 @@ class Money extends Number
             'subUnits' => $units,
         ]);
 
-        $this->step(1 / $units);
+        $this->step( 1 / pow(10, $units));
 
         $this
             ->displayUsing(function(\Cknow\Money\Money $value) {
