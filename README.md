@@ -20,18 +20,18 @@ You can install the package in to a Laravel app that uses [Nova](https://nova.la
 composer require weble/laravel-ecommerce-nova
 ```
 
-Next up, you must register the tool with Nova. This is typically done in the `tools` method of the `NovaServiceProvider`.
+Next up, you must register the tool within your Nova resource.
 
 ```php
-// in app/Providers/NovaServiceProvider.php
+// in app/Nova/Order.php
 
 // ...
 
-public function tools()
+public function fields()
 {
     return [
         // ...
-        new \Weble\LaravelEcommerceNova\ManageOrderTool(),
+        \Weble\LaravelEcommerceNova\ManageOrderTool::make($this->resource),
     ];
 }
 ```
