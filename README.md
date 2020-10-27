@@ -1,3 +1,5 @@
+# WARNING: STILL IN DEVELOPMENT - DO NOT USE YET
+
 # Laravel Ecommerce Nova Tools, Resources and Fields
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/weble/laravel-ecommerce-nova.svg?style=flat-square)](https://packagist.org/packages/weble/laravel-ecommerce-nova)

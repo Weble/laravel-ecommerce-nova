@@ -26,7 +26,7 @@ class ManageOrderTool extends ResourceTool
         $this->order = $order;
 
         $this->withMeta([
-            'transitions' => collect($this->order->stateMachine()->getPossibleTransitions())->mapWithKeys(function($transition) {
+            'transitions' => $this->order->possibleTransitions( )->mapWithKeys(function($transition) {
                 $metadata = $this->order->stateMachine()->metadata()->transition($transition);
                 $metadata['title'] ??= Str::title($transition);
 
