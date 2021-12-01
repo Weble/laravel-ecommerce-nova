@@ -7,8 +7,11 @@ use Illuminate\Routing\Controller;
 
 class ManageOrderController extends Controller
 {
-    public function __invoke(Order $order, string $transition)
+    public function __invoke($order, string $transition)
     {
+        $class = config('ecommerce.classes.orderModel', Order::class);
+        $order = $class::findOrFail($order);
+
         try {
             $order->stateMachine()->apply($transition);
             $order->save();
