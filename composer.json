@@ -17,7 +17,7 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "laravel/nova": "^3.0",
-        "weble/laravel-ecommerce": "dev-master",
+        "weble/laravel-ecommerce": "^1.0",
         "madewithlove/laravel-nova-uuid-support": "^1.1.1"
     },
     "autoload": {
