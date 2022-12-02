@@ -53,7 +53,7 @@ class ManageOrderTool extends ResourceTool
      */
     public function component()
     {
-        return 'workflow';
+        return 'manage-order-tool';
     }
 
     /**
