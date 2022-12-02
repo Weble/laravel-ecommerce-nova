@@ -61,7 +61,7 @@ class ManageOrderTool extends ResourceTool
      *
      * @return array
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return array_merge([
             'component'    => 'panel',

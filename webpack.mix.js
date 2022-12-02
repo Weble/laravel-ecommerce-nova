@@ -1,9 +1,10 @@
 let mix = require('laravel-mix')
 
-mix.js('resources/js/tool.js', 'dist/js');
-mix.js('resources/js/field.js', 'dist/js');
-mix.webpackConfig({
-    resolve: {
-        symlinks: false
-    }
-})
+require('./nova.mix')
+
+mix
+    .setPublicPath('dist')
+    .js('resources/js/tool.js', 'js')
+    .js('resources/js/field.js', 'js')
+    .vue({version: 3})
+    .nova('weble/laravel-ecommerce-nova')

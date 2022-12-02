@@ -48,12 +48,8 @@
             "url": "https://nova.laravel.com"
         },
         {
-            "type": "path",
-            "url": "../laravel-ecommerce"
-        },
-        {
             "type": "vcs",
-            "url": "https://github.com/sebdesign/state-machine"
+            "url": "https://github.com/weble/laravel-ecommerce"
         }
     ]
 }

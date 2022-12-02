@@ -1,11 +1,5 @@
 Nova.booting((Vue, router) => {
-    router.addRoutes([
-        {
-            name: 'laravel-ecommerce-nova',
-            path: '/laravel-ecommerce-nova',
-            component: require('./components/Tool'),
-        },
-    ]);
+    Nova.inertia("ManageOrderTool", require("./components/Tool").default);
 
     Vue.component('manage-order-tool', require('./components/Tool'));
 })
