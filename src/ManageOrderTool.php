@@ -53,7 +53,7 @@ class ManageOrderTool extends ResourceTool
      */
     public function component()
     {
-        return 'workflow';
+        return 'manage-order-tool';
     }
 
     /**
@@ -61,7 +61,7 @@ class ManageOrderTool extends ResourceTool
      *
      * @return array
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return array_merge([
             'component'    => 'panel',

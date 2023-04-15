@@ -40,7 +40,7 @@ class ToolServiceProvider extends ServiceProvider
             return;
         }
 
-        Route::middleware(['nova', Authorize::class])
+        Route::middleware(['nova'])
                 ->prefix('nova-vendor/weble/laravel-ecommerce-nova')
                 ->group(__DIR__.'/../routes/api.php');
     }
@@ -52,6 +52,11 @@ class ToolServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        Nova::router()
+            ->group(function ($router) {
+                $router->get('manage-order-tool', function ($request) {
+                    return inertia('ManageOrderTool');
+                });
+            });
     }
 }
